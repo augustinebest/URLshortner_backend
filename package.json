@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "start-watch": "nodemon server.js"
   },
   "author": "Ojini Jude",
