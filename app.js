@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const morgan = require('morgan');
+const UrlDetailscontroller = require('./Controllers/UrlDetailsController'); 
 
 const app = express();
 
@@ -28,7 +29,8 @@ mongoose.Promise = global.Promise;
 // Connection to mlab
 mongoose.connect('mongodb://urlshortner:urlshortner1@ds117846.mlab.com:17846/urlshortner', { useNewUrlParser: true })
 
-app.get('/b', (req, res) => res.json({message: 'Hello World!'}))
+app.get('/', (req, res) => res.json({message: 'Hello World!'}))
+app.get('/:link', UrlDetailscontroller.re);
 
 //Middleware
 app.use(morgan('dev'));
