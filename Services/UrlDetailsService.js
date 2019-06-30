@@ -29,15 +29,6 @@ exports.shortLink = (req, res, data) => {
     })
 }
 
-exports.redirectLink = (req, res, link) => {
-     // checking if the long url exists in the database
-     UrlDetailsRepository.getNew(link, (err, result) => {
-        if(err) return res.json({message: 'error ocurred in obtaining the url', code: 13});
-        if(!result) return res.json({message: 'This Url does not exists!', code: 14});
-        if(result.new_url == link) return res.json({message: '', link: result.new_url, ol: result.old_url, code: 200});
-     })
-}
-
 exports.re = (req, res, link) => {
     // checking if the long url exists in the database
     UrlDetailsRepository.getCustomise(link, (err, result) => {

@@ -23,20 +23,6 @@ exports.shortLink = async (req, res) => {
     }
 }
 
-exports.redirectLink = async (req, res) => {
-    try {
-        const link = req.body.link;
-        const validateUrl = await validate('url', link);
-        if(validateUrl == true) {
-            return service.redirectLink(req, res, link);
-        } else {
-            return res.json({message: 'This Url is invalid!', code: 10})
-        }
-    } catch(error) {
-        return res.json({message: error, code: 11});
-    }
-}
-
 exports.re = async (req, res) => {
     try {
         const link = req.params.link;
